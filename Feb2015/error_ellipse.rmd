@@ -1,0 +1,100 @@
+<!doctype html>
+<!--[if lt IE 7 ]>
+<html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<link href="/__static__/components/themify-icons/themify-icons.css?v=d31e39df850f71e1b2cd3c2c1826fe30" rel="stylesheet"/>
+<link href="/__static__/styles/style.css?v=1a55aa6d5fd059c1fceee3cbfd2ea08c" rel="stylesheet"/>
+<!-- block head -->
+
+<style>
+.spinner {
+clear: both;
+margin: 0 auto;
+}
+</style>
+
+<!-- block head -->
+</head>
+<body>
+<header>
+<!-- block header -->
+
+<!-- block header -->
+</header>
+<div id="content">
+<!-- block content -->
+
+<div class="container vertical-table">
+<div class="row vertical-align-middle">
+<div class="col-lg-12">
+<div class="spinner text-center">
+<h3>Please Wait</h3>
+<img src="/__static__/images/spinner.gif?v=4889784689c1b8109f97a0eecf9265f4"/>
+</div>
+</div>
+</div>
+</div>
+
+<!-- block content -->
+</div>
+<footer>
+<!-- block footer -->
+
+<!-- block footer -->
+</footer>
+</body>
+<script src="/__static__/components/jquery/dist/jquery.min.js?v=6fc159d00dc3cea4153c038739683f93" type="text/javascript"></script>
+<script src="/__static__/components/bootstrap/dist/js/bootstrap.min.js?v=c5b5b2fa19bd66ff23211d9f844e0131" type="text/javascript"></script>
+<script src="/__static__/components/iframe-resizer/js/iframeResizer.contentWindow.js?v=d5a94813e680b02fadf7f73aa2749c3a" type="text/javascript"></script>
+<script src="/__static__/scripts/shinyapps.js?v=afc23eeb75b4a756875ad671a3cde285" type="text/javascript"></script>
+<script src="/__static__/scripts/shinyapps.frame.content.js?v=7697d548c0b46faaf2151e2189aa41e6" type="text/javascript"></script>
+<!-- block scripts -->
+
+<script>
+$(document).ready(function () {
+var count = 0;
+var app_url = 'https://magicbeansinc.shinyapps.io/DESC_DESchool2015/';
+var url = app_url + '__health-check__/';
+var started_at = new Date().getTime();
+function checkApp() {
+count += 1;
+$.ajax({url: url, cache: false})
+.done(function(data, textStatus, xhr) {
+if (xhr.status == 200) {
+// log time elapsed
+var finished_at = new Date().getTime();
+var elapsed = finished_at - started_at;
+if ( window.console && window.console.log ) {
+console.log("Application loaded in " + elapsed + "ms" + ' (' + count + ')')
+}
+// reload
+window.location.reload(true)
+} else {
+// wait and try again
+var snooze = Math.min(3000, (250 * count));
+setTimeout(function () {
+checkApp()
+}, snooze)
+}
+})
+}
+checkApp();
+});
+</script>
+
+<!-- block scripts -->
+</html>
