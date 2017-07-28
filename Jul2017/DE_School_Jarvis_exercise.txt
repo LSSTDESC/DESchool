@@ -1,0 +1,27 @@
+Pre-lesson homework and in-class exercise for Mike Jarvis' DE School lesson:
+
+Clone the LSSTDESC/Coord repository onto your laptop.  The command to do so is
+git clone git@github.com:LSSTDESC/Coord.git
+
+If that doesn't work, you might need to tell GitHub your SSH key. See instructions here. If you can't figure that out, you can also use https instead, which I think works without the SSH key on file:
+
+git clone https://github.com/LSSTDESC/Coord.git
+
+Try to install the code.  For most of you, this will simply involve running either
+python setup.py install --prefix=$HOME
+
+or
+
+sudo python setup.py install
+
+depending on your setup and preferences.  However, if your system does not already have libffi installed, you may need to do a little bit more work to get this installed.  See the instructions here if necessary.
+
+Make sure you have nose and astropy installed.
+pip install nose astropy
+
+Run the existing test suite, such as it is.
+cd tests
+nosetests
+
+Make sure that you are a member of the LSSTDESC GitHub team.  I think everyone who is a DESC member is automatically signed up, but if you are not, then I think your best bet is to post on the #desc-ci Slack channel that you want to be added.  (The LSSTDESC GitHub owners all haunt that particular hallway.)
+(Optional) Maybe take a look at the Coord documentation.  During the class I'll be asking you to design some tests for this package, so if you have a chance to familiarize yourself a little bit with the module, then you'll have a head start on Monday.
